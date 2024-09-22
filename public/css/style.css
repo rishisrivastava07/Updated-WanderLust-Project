@@ -1,0 +1,138 @@
+body {
+  font-family: "Plus Jakarta Sans", sans-serif !important;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.container {
+  flex: 1;
+}
+
+/* Navbar */
+.navbar {
+  background-color: white;
+}
+
+.fa-airbnb {
+  color: #fe424d;
+  font-size: 1.5rem;
+  padding: 1rem;
+}
+
+.signup-page{
+  font-size: 3rem;
+  padding: 1rem;
+}
+
+.nav-link {
+  color: #222222 !important;
+}
+
+/* Footer */
+.f-info-links a {
+  text-decoration: none;
+  color: #222222;
+}
+
+.f-info-links a:hover {
+  text-decoration: underline;
+}
+
+.f-info-links,
+.f-info-socials,
+.f-info-brands {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.f-info-socials i {
+  font-size: 1.25rem;
+  margin-right: 1rem;
+}
+
+.f-info {
+  text-align: center;
+  height: 6rem;
+  background-color: #ebebeb;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: space-evenly;
+}
+
+.f-info-links a {
+  margin-right: 1rem;
+}
+
+.f-info-links a:last-child {
+  margin-right: 0;
+}
+
+/* Cards */
+.listing-card {
+  border: none !important;
+  margin-bottom: 2rem;
+}
+
+.card-img-top {
+  border-radius: 1rem !important;
+  width: 100% !important;
+  object-fit: cover !important;
+}
+
+.card-body {
+  padding: 0 !important;
+}
+
+.card-text {
+  font-weight: 400 !important;
+}
+
+/* Cards Effect */
+/* .card-img-overlay{
+    opacity: 0;
+}
+
+.card-img-overlay:hover {
+    opacity: 0.2;
+    background-color: white;
+    box-shadow: #222222;
+} */
+
+/* Buttons */
+.add-btn {
+  background-color: #fe424d !important;
+  color: white !important;
+  border: none !important;
+}
+.del-btn {
+  background-color: #0e0e0e !important;
+  color: white !important;
+  border: none !important;
+}
+.btns {
+  display: flex;
+}
+.fa-location-dot {
+  color: #fe424d;
+  font-size: 1.25rem;
+  margin-right: 1rem;
+}
+
+.fa-heart {
+  color: #fe424d;
+  font-size: 1.75rem;
+  margin-left: 0.75rem;
+}
+
+.fa-star {
+  color: #fe424d;
+  font-size: 1.25rem;
+  margin-left: 0.25rem;
+}
+.fa-user{
+  margin-right: 1rem;
+}
