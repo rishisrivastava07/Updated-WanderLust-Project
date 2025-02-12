@@ -70,12 +70,4 @@ Check out the live version of WanderLust here: [Live Link](https://wanderlust-se
 
 ## Contributing
 
-Contributions are welcome! Feel free to submit pull requests or report issues.
-
-## License
-
-This project is licensed under the MIT License.
-
----
-
-Feel free to update the repository link and environment variables with your actual credentials before deployment.
+Contributions are welcome! Feel free to submit pull requests or report issues. Feel free to update the repository link and environment variables with your actual credentials before deployment.
