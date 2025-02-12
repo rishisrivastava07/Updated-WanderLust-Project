@@ -22,13 +22,13 @@
   });
 })();
 
-document.getElementById("left-btn").addEventListener("click", function () {
+document.getElementById("left-btn").addEventListener("click", () => {
   document
     .getElementById("filters")
     .scrollBy({ left: -200, behavior: "smooth" });
 });
 
-document.getElementById("right-btn").addEventListener("click", function () {
+document.getElementById("right-btn").addEventListener("click", () => {
   document
     .getElementById("filters")
     .scrollBy({ left: 200, behavior: "smooth" });
