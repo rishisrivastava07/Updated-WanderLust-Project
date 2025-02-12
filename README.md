@@ -52,10 +52,10 @@ WanderLust is a full-stack web application designed to simplify travel accommoda
 
 4. Start the server:
    ```bash
-   npm start
+   nodemon app.js
    ```
 
-5. Open the application in your browser at `http://localhost:8080`
+5. Open the application in your browser at `http://localhost:8080/listings`
 
 ## Live Demo
 
