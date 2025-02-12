@@ -14,19 +14,173 @@ body {
   background-color: white;
 }
 
-.fa-airbnb {
-  color: #fe424d;
-  font-size: 1.5rem;
-  padding: 1rem;
+.search-bar {
+  border-radius: 5rem !important; /* Keeps input rounded */
+  width: 30rem !important; /* Default width */
+  max-width: 100%; /* Ensures it does not overflow */
+  padding: 0.6rem 1.2rem;
+  transition: all ease-in-out 0.2s !important;
 }
 
-.signup-page{
+/* Ensuring Search Button Matches */
+.search-btn {
+  border-radius: 50% !important; /* Makes the button circular */
+  width: 2.5rem; /* Fixed width */
+  height: 2.5rem; /* Fixed height */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 1rem;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 992px) {
+  .search-bar {
+    width: 20rem !important; /* Smaller width on medium screens */
+    margin-left: 0 !important; /* Removes extra left margin */
+  }
+}
+
+@media (max-width: 768px) {
+  .search-bar {
+    width: 15rem !important; /* Even smaller width on tablets */
+  }
+}
+
+@media (max-width: 576px) {
+  .search-bar {
+    width: 12rem !important; /* Small width on mobile */
+  }
+
+  .search-btn {
+    width: 2rem; /* Adjust button size for mobile */
+    height: 2rem;
+  }
+}
+
+.search-bar:hover,
+.search-btn:hover {
+  transform: scale(1.01);
+}
+
+.nav-link {
+  opacity: 0.8;
+  transition: all ease-in-out 0.2s !important;
+}
+
+.nav-link:hover {
+  opacity: 1;
+  transform: scale(1.1) !important;
+}
+
+.navbar-brand {
+  font-size: 2rem !important;
+  font-weight: bold;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center !important;
+}
+
+.fa-airbnb {
+  color: #fe424d;
+  font-size: 2.5rem;
+  padding: 0.5rem;
+}
+
+.signup-page {
   font-size: 3rem;
   padding: 1rem;
 }
 
 .nav-link {
   color: #222222 !important;
+}
+
+/* Features */
+#filters-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+#filters {
+  display: flex;
+  overflow-x: hidden;
+  white-space: nowrap;
+  padding: 1rem 0;
+  gap: 1rem;
+  scroll-behavior: smooth;
+  width: 100%;
+}
+
+#filters::-webkit-scrollbar {
+  display: none;
+}
+
+.filter {
+  flex: 0 0 auto;
+  text-align: center;
+  opacity: 0.7;
+  transition: all ease-in-out 0.2s;
+  padding: 0.5rem;
+  min-width: 1rem;
+}
+
+.filter:hover {
+  opacity: 1;
+  cursor: pointer;
+  transform: scale(1.1);
+}
+
+.filter p {
+  font-size: 0.8rem;
+  margin-top: 0.3rem;
+}
+
+/* Scroll Buttons */
+.scroll-btn {
+  transition: all ease-in-out 0.2s;
+  color: black;
+  opacity: 0.8;
+  border: none;
+  cursor: pointer;
+  z-index: 10;
+  border-radius: 100%;
+}
+
+.scroll-btn:hover {
+  transform: scale(1.08);
+  opacity: 1;
+  color: black;
+}
+
+#left-btn {
+  left: 0;
+}
+
+#right-btn {
+  right: 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .filter {
+    min-width: 70px;
+  }
+
+  .filter p {
+    font-size: 0.7rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .filter {
+    min-width: 60px;
+  }
+
+  .filter p {
+    font-size: 0.65rem;
+  }
 }
 
 /* Footer */
@@ -91,31 +245,40 @@ body {
   font-weight: 400 !important;
 }
 
-/* Cards Effect */
-/* .card-img-overlay{
-    opacity: 0;
+.tax-info {
+  display: none;
 }
 
-.card-img-overlay:hover {
-    opacity: 0.2;
-    background-color: white;
-    box-shadow: #222222;
-} */
+.form-check-input {
+  cursor: pointer;
+  color: #fe424d;
+}
 
 /* Buttons */
 .add-btn {
   background-color: #fe424d !important;
   color: white !important;
   border: none !important;
+  transition: all ease-in-out 0.2s !important;
 }
+
 .del-btn {
   background-color: #0e0e0e !important;
   color: white !important;
   border: none !important;
+  transition: all ease-in-out 0.2s !important;
 }
+
+.add-btn:hover,
+.del-btn:hover {
+  transform: scale(1.05);
+  cursor: pointer;
+}
+
 .btns {
   display: flex;
 }
+
 .fa-location-dot {
   color: #fe424d;
   font-size: 1.25rem;
@@ -133,6 +296,45 @@ body {
   font-size: 1.25rem;
   margin-left: 0.25rem;
 }
-.fa-user{
+.fa-user {
   margin-right: 1rem;
+}
+
+/* Map */
+#map {
+  width: 100%;
+  height: 50vh; /* Adjusts height to half of the viewport */
+  min-height: 300px; /* Ensures a minimum height for usability */
+  border-radius: 1rem;
+}
+
+.mapboxgl-popup {
+  max-width: 250px;
+  font-family: Arial, sans-serif;
+}
+
+.mapboxgl-popup-content {
+  background: #fff;
+  color: #333;
+  border-radius: 10px;
+  padding: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+.mapboxgl-popup-content h4 {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #d9534f; /* Red color to match marker */
+}
+
+.mapboxgl-popup-content p {
+  font-size: 14px;
+  margin: 0;
+  color: #666;
+}
+
+.mapboxgl-popup-tip {
+  border-top-color: #fff !important; /* Match popup background */
 }

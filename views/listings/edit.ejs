@@ -5,7 +5,7 @@
       <br />
       <h3>Update Existing Listings</h3>
       <hr />
-      <form action="/listings/<%= listing._id %>?_method=PUT" method="post" class="needs-validation" novalidate>
+      <form action="/listings/<%= listing._id %>?_method=PUT" method="post" class="needs-validation" enctype="multipart/form-data" novalidate>
         <div class="mb-3">
           <label for="title" class="form-label">Title</label>
           <input
@@ -33,18 +33,18 @@
           </div>
         </div>
         <div class="mb-3">
-          <label for="image" class="form-label">Image Link / URL</label>
+          Original Listing Image <br />
+          <img src="<%= originalImageURL %>" alt="org_img" />
+        </div>
+        <div class="mb-3">
+          <label for="image" class="form-label">Upload New Listings Images</label>
           <input
             name="listing[image]"
-            type="text"
-            value="<%= listing.image %>"
+            type="file"
+            placeholder="Upload your Image"
             class="form-control"
             id="image"
-            required
-          />
-          <div class="valid-feedback">
-            Link / URL should be added
-          </div>
+            />
         </div>
         <div class="mb-3">
           <label for="price" class="form-label">Price</label>

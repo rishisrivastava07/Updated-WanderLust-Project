@@ -5,7 +5,7 @@
       <br />
       <h3>Create New Listings</h3>
       <hr >
-      <form action="/listings" method="post" class="needs-validation" novalidate>
+      <form action="/listings" method="post" class="needs-validation" enctype="multipart/form-data" novalidate>
         <div class="mb-3">
           <label for="title" class="form-label">Title</label>
           <input
@@ -35,11 +35,11 @@
           </div>
         </div>
         <div class="mb-3">
-          <label for="image" class="form-label">Image Link / URL</label>
+          <label for="image" class="form-label">Upload Listings Images</label>
           <input
             name="listing[image]"
-            type="text"
-            placeholder="Attach Image Link / URL"
+            type="file"
+            placeholder="Upload your Image"
             class="form-control"
             id="image"
           />
