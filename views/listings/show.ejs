@@ -33,12 +33,12 @@
         <div class="row g-2 mb-4">
           <div class="col-md-6">
             <form action="/listings/<%= listing._id %>/edit" method="get">
-              <button type="submit" class="btn btn-primary w-100">Edit Listing</button>
+              <button type="submit" class="btn btn-primary w-100 add-btn">Edit Listing</button>
             </form>
           </div>
           <div class="col-md-6">
             <form action="/listings/<%= listing._id %>?_method=delete" method="post">
-              <button type="submit" class="btn btn-danger w-100">Delete Listing</button>
+              <button type="submit" class="btn btn-danger w-100 del-btn">Delete Listing</button>
             </form>
           </div>
         </div>
