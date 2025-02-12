@@ -8,11 +8,15 @@
   <div class="container my-5">
     <div class="row justify-content-center">
       <div class="col-lg-8 col-md-10 col-sm-12">
-        <h3 class="mb-3 text-center">
-          <%= listing.title %>
-        </h3>
+        <h3 class="mb-3 text-center"><%= listing.title %></h3>
+        <hr />
         <div class="card listing-card mb-4 shadow-sm">
-          <img src="<%= listing.image.url %>" class="card-img-top" alt="Listing Image" style="height: 20rem; object-fit: cover;" />
+          <img
+            src="<%= listing.image.url %>"
+            class="card-img-top"
+            alt="Listing Image"
+            style="height: 20rem; object-fit: cover"
+          />
           <div class="card-body">
             <p class="card-text"><b>Description:</b> <%= listing.description %></p>
             <p class="card-text">
@@ -20,7 +24,8 @@
               <small class="text-muted"><%= listing.location %>, <%= listing.country %></small>
             </p>
             <p class="card-text">
-              <b>Price:</b> <small class="text-muted">&#8377; <%= listing.price.toLocaleString('en-IN') %></small>
+              <b>Price:</b>
+              <small class="text-muted">&#8377; <%= listing.price.toLocaleString('en-IN') %></small>
             </p>
             <p class="card-text">
               <b><i class="fa-solid fa-envelope"></i> Contact Owner:</b>
@@ -42,7 +47,7 @@
             </form>
           </div>
         </div>
-        <% } %>
+        <% } %> 
 
         <% if(currUser) { %>
         <div class="mb-5">
@@ -50,11 +55,18 @@
           <hr />
           <form action="/listings/<%= listing._id %>/reviews" method="post" class="needs-validation" novalidate>
             <label for="rating" class="form-label">Rating</label>
-            <fieldset class="starability-slot mb-3">
-              <% for(let i = 5; i >= 1; i--) { %>
-              <input type="radio" id="rate<%= i %>" name="review[rating]" value="<%= i %>" />
-              <label for="rate<%= i %>" title="<%= i %> stars"><%= i %> star<%= i > 1 ? 's' : '' %></label>
-              <% } %>
+            <fieldset class="starability-slot">
+              <input type="radio" id="no-rate" class="input-no-rate" name="review[rating]" value="0" checked aria-label="No rating." />
+              <input type="radio" id="first-rate1" name="review[rating]" value="1" />
+              <label for="first-rate1" title="Terrible">1 star</label>
+              <input type="radio" id="first-rate2" name="review[rating]" value="2" />
+              <label for="first-rate2" title="Not good">2 stars</label>
+              <input type="radio" id="first-rate3" name="review[rating]" value="3" />
+              <label for="first-rate3" title="Average">3 stars</label>
+              <input type="radio" id="first-rate4" name="review[rating]" value="4" />
+              <label for="first-rate4" title="Very good">4 stars</label>
+              <input type="radio" id="first-rate5" name="review[rating]" value="5" />
+              <label for="first-rate5" title="Amazing">5 stars</label>
             </fieldset>
             <div class="mb-3">
               <label for="comment" class="form-label">Comment</label>
@@ -64,7 +76,7 @@
             <button type="submit" class="btn btn-outline-dark w-100">Submit Review</button>
           </form>
         </div>
-        <% } %>
+        <% } %> 
 
         <% if(listing.reviews.length > 0) { %>
         <div class="mb-5">
@@ -73,20 +85,24 @@
           <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
             <% listing.reviews.forEach(review => { %>
             <div class="col">
-              <div class="card shadow-sm">
+              <div class="card shadow-sm h-100">
                 <div class="card-header">
                   <h5><i class="fa-solid fa-user"></i> <%= review.author.username %></h5>
                 </div>
-                <div class="card-body">
+                <div class="card-body ps-3 mt-2 mb-2">
                   <p><%= review.comment %></p>
                   <p><b>Rating:</b> <%= review.rating %>/5</p>
+                  <p class="starability-result" data-rating="<%= review.rating %>"></p>
                   <% if(currUser && review.author._id.equals(currUser._id)) { %>
-                  <form action="/listings/<%= listing._id %>/reviews/<%= review._id %>?_method=delete" method="post">
-                    <button type="submit" class="btn btn-sm btn-outline-danger">Delete</button>
-                  </form>
-                  <% } %>
-                </div>
-              </div>
+                    <form action="/listings/<%= listing._id %>/reviews/<%= review._id %>?_method=delete" method="post">
+                      <button type="submit" class="btn btn-sm btn-outline-danger del-btn">Delete</button>
+                    </form>
+                    <% } %>
+                  </div>
+                  <div class="card-footer text-body-secondary">
+                    <b>Created</b> &nbsp; &nbsp; <i>few hours ago</i>
+                  </div>
+                  </div>
             </div>
             <% }); %>
           </div>
@@ -94,9 +110,9 @@
         <% } %>
 
         <div class="mb-5">
-          <h4 class="text-center">Location <i class="fa-solid fa-location-crosshairs" style="color: #fe424d;"></i></h4>
+          <h4 class="text-center">Where you'll be <i class="fa-solid fa-location-crosshairs" style="color: #fe424d"></i></h4>
           <hr />
-          <div id="map" class="rounded shadow-sm" style="height: 400px;"></div>
+          <div id="map" class="rounded shadow-sm" style="height: 400px"></div>
         </div>
       </div>
     </div>
